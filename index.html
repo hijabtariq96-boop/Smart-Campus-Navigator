@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Campus Navigator | Emerson University Multan</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+<header>
+  <div class="brand">
+    <div class="crest">E</div>
+    <div><h1>Emerson University Multan</h1><small>Smart Campus Navigator</small></div>
+  </div>
+  <button id="themeBtn" aria-label="Toggle dark or light map">Dark map</button>
+</header>
+
+<div class="app">
+  <aside>
+    <div class="card">
+      <h2>Search the campus</h2>
+      <input type="text" id="search" placeholder="Try: VC Office, Lab, Fee" autocomplete="off">
+      <ul id="results"></ul>
+    </div>
+
+    <div class="card">
+      <h2>Find a route</h2>
+      <label for="start">Start</label><select id="start"></select>
+      <label for="end">Destination</label><select id="end"></select>
+      <button class="btn" id="locBtn" style="width:100%;margin-top:10px">📍 Meri location se start karein</button>
+      <label class="check"><input type="checkbox" id="acc"> Wheelchair accessible route</label>
+      <div class="row">
+        <button class="btn" id="go">Show route</button>
+        <button class="btn alt" id="swap" title="Swap start and destination">Swap</button>
+      </div>
+    </div>
+
+    <div class="card" id="out" style="display:none">
+      <h2 id="outTitle"></h2>
+      <div id="msg" class="msg"></div>
+      <div class="stats" id="stats">
+        <div class="stat"><b id="dist">0</b><span>meters</span></div>
+        <div class="stat"><b id="time">0</b><span>minutes walk</span></div>
+      </div>
+      <ol id="steps"></ol>
+    </div>
+    <div class="card">
+      <h2>Campus info</h2>
+      <div style="font-size:13px;line-height:1.6">
+        <b>Main Gate:</b> Bosan Road, near Gol Bagh, Multan.<br>
+        <b>Offices:</b> Mon-Fri, 8:00 AM - 4:00 PM. Jummah break 12:30 - 2:00 PM. Sat and Sun closed.<br>
+        <b>Library:</b> Mon-Fri, 8:00 AM - 4:00 PM. HEC Digital Library online 24/7.<br>
+        <b>Bank / ATM:</b> Not inside campus. Nearest: Bank of Punjab near Gol Bagh.<br>
+        <b>Photocopy:</b> Shop next to the Main Canteen.<br>
+        <b>Visitors:</b> Original CNIC at the Main Gate for a visitor pass.
+      </div>
+    </div>
+  </aside>
+  <div id="map"></div>
+</div>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
